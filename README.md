@@ -13,7 +13,7 @@ ChalkTalk AI is a full-stack analytics platform that audits university lectures.
 ---
 
 ## ⚡ Key Capabilities
-* **Pedagogical Engagement Score (PES):** A unified metric (0-100) rating the lecture's interactivity.
+* **Pedagogical Engagement Score (PES):** A unified metric (0-10) rating the lecture's interactivity.
 * **Smart Vision Analysis:** Uses **OpenCV** to detect high-motion segments and **Google Gemini 2.5 Flash** to "watch" the professor's delivery.
 * **Audio Diagnostics:** Analyzes speech patterns and student engagement cues.
 * **Secure Faculty Dashboard:** Private, authenticated access for professors to track their progress over time.
