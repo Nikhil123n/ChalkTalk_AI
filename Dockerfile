@@ -32,7 +32,7 @@ RUN uv sync --frozen
 COPY --from=frontend-builder /app/frontend/.next /app/frontend/.next
 COPY --from=frontend-builder /app/frontend/public /app/frontend/public
 COPY --from=frontend-builder /app/frontend/package.json /app/frontend/package-lock.json /app/frontend/
-COPY --from=frontend-builder /app/frontend/next.config.ts /app/frontend/
+COPY --from=frontend-builder /app/frontend/next.config.mjs /app/frontend/
 WORKDIR /app/frontend
 RUN npm ci --omit=dev
 

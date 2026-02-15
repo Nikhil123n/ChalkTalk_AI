@@ -1,6 +1,8 @@
 #!/bin/bash
 # Start backend in background
-uv run uvicorn main:app --host 0.0.0.0 --port 8000 &
+# Start backend in background inside /app
+cd /app
+python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 &
 BACKEND_PID=$!
 
 # Start frontend
