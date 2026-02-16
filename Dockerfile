@@ -27,6 +27,8 @@ COPY backend/pyproject.toml ./backend/
 RUN uv sync --no-install-project
 COPY backend ./backend
 RUN uv sync
+# Force install uvicorn to ensure it's available
+RUN pip install uvicorn
 
 # Setup Frontend from builder
 COPY --from=frontend-builder /app/frontend/.next /app/frontend/.next
