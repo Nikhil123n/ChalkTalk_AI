@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Upload, FileVideo, CheckCircle, AlertCircle, Link as LinkIcon, Download } from 'lucide-react';
 import { clsx } from 'clsx';
 import { useAuth } from '../context/AuthContext';
+import { API_BASE_URL } from '../utils/api';
 
 interface VideoUploadProps {
     onUploadComplete: (data: any) => void;
@@ -92,7 +93,7 @@ export default function VideoUpload({ onUploadComplete }: VideoUploadProps) {
         setIsUploading(true);
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/analyze-url`, {
+            const response = await fetch(`${API_BASE_URL}/analyze-url`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

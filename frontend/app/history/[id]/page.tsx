@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { ArrowLeft, Calendar, History, Award } from 'lucide-react';
+import { API_BASE_URL } from '../../../utils/api';
 import EngagementHeatmap from '../../../components/EngagementHeatmap';
 import FeedbackSummary from '../../../components/FeedbackSummary';
 
@@ -111,7 +112,7 @@ export default function HistoryDetailsPage() {
                         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Representative Frame</h3>
                         <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 max-w-2xl">
                             <img
-                                src={record.thumbnail.startsWith('data:') ? record.thumbnail : `${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}${record.thumbnail}`}
+                                src={record.thumbnail.startsWith('data:') ? record.thumbnail : `${API_BASE_URL}${record.thumbnail}`}
                                 alt="Representative frame"
                                 className="w-full h-full object-contain"
                             />

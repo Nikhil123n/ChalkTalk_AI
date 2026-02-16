@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '../../context/AuthContext';
 import ThemeToggle from '../../components/ThemeToggle';
 import { ArrowLeft, Calendar, History, PlayCircle, Award, Trash2 } from 'lucide-react';
+import { API_BASE_URL } from '../../utils/api';
 
 interface HistoryRecord {
     id: string;
@@ -124,7 +125,7 @@ export default function HistoryPage() {
                                     <div className="aspect-video bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
                                         {record.thumbnail ? (
                                             <img
-                                                src={record.thumbnail.startsWith('data:') ? record.thumbnail : `${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}${record.thumbnail}`}
+                                                src={record.thumbnail.startsWith('data:') ? record.thumbnail : `${API_BASE_URL}${record.thumbnail}`}
                                                 alt={record.title}
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                             />

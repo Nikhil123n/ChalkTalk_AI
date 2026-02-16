@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { UserPlus, AlertCircle } from 'lucide-react';
+import { API_BASE_URL } from '../../utils/api';
 
 export default function SignupPage() {
     const [name, setName] = useState('');
@@ -19,7 +20,7 @@ export default function SignupPage() {
         setIsLoading(true);
 
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}/signup`, {
+            const res = await fetch(`${API_BASE_URL}/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password }),

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '../../context/AuthContext';
 import { LogIn, AlertCircle, ArrowLeft } from 'lucide-react';
+import { API_BASE_URL } from '../../utils/api';
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
@@ -18,11 +19,10 @@ export default function LoginPage() {
         setIsLoading(true);
 
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
-            console.log("Attempting login to API:", apiUrl);
-            console.log("Full Login URL:", `${apiUrl}/login`);
+            console.log("Attempting login to API:", API_BASE_URL);
+            console.log("Full Login URL:", `${API_BASE_URL}/login`);
 
-            const res = await fetch(`${apiUrl}/login`, {
+            const res = await fetch(`${API_BASE_URL}/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
