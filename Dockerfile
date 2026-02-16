@@ -24,9 +24,9 @@ WORKDIR /app
 RUN pip install uv
 COPY pyproject.toml uv.lock ./
 COPY backend/pyproject.toml ./backend/
-RUN uv sync --frozen --no-install-project
+RUN uv sync --no-install-project
 COPY backend ./backend
-RUN uv sync --frozen
+RUN uv sync
 
 # Setup Frontend from builder
 COPY --from=frontend-builder /app/frontend/.next /app/frontend/.next
