@@ -10,6 +10,10 @@ cd /app/frontend
 npm start &
 FRONTEND_PID=$!
 
+# Start Nginx
+echo "Starting Nginx..."
+nginx
+
 # Trap shutdown signals
 trap "kill $BACKEND_PID; kill $FRONTEND_PID" SIGINT SIGTERM
 

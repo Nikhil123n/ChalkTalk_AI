@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     libgl1 \
     libglib2.0-0 \
     && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs \
+    && apt-get install -y nodejs nginx \
     && rm -rf /var/lib/apt/lists/*
 
 # Setup Backend
@@ -39,14 +39,14 @@ RUN npm ci --omit=dev
 # Copy start script
 WORKDIR /app
 COPY start.sh .
+COPY nginx.conf /etc/nginx/nginx.conf
 RUN chmod +x start.sh
 
 # Environment
 ENV NODE_ENV=production
 ENV PATH="/app/.venv/bin:$PATH"
-# Backend runs on 8000, Frontend on 3000
-# We expose 3000 because that's where users hit Next.js
-EXPOSE 3000
+# Expose port 80 for Nginx (which routes to 3000 and 8000)
+EXPOSE 80
 
 # Start both
 CMD ["./start.sh"]
