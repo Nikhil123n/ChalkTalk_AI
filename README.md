@@ -21,10 +21,11 @@ ChalkTalk AI is a full-stack analytics platform that audits university lectures.
 
 ## 🛠️ Tech Stack
 * **Frontend:** Next.js 15 (App Router), React, Tailwind CSS, Recharts.
-* **Backend:** Python 3.10+, FastAPI.
+* **Backend:** Python 3.11+, FastAPI, Motor (Async MongoDB).
 * **AI Engine:** Google Gemini 2.5 Flash, OpenCV.
 * **Database:** MongoDB Atlas.
 * **Infrastructure:** DigitalOcean App Platform (Dockerized).
+* **Package Manager:** `uv` (Python), `npm` (Node).
 
 ---
 
@@ -38,25 +39,29 @@ ChalkTalk AI is a full-stack analytics platform that audits university lectures.
 
 ### Prerequisites
 * **Node.js** v18+
-* **Python** 3.10+
+* **Python** 3.11+
+* **uv** (Python Package Manager): [Install uv](https://github.com/astral-sh/uv)
+    * `curl -LsSf https://astral.sh/uv/install.sh | sh` (macOS/Linux)
+    * `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"` (Windows)
 * **MongoDB**: Connection string for MongoDB Atlas.
 
 ### 1. Backend Setup
 ```bash
 cd backend
 
-# Install dependencies
-pip install -r requirements.txt
-# (Core deps: fastapi, uvicorn, google-generativeai, motor, opencv-python, yt-dlp)
+# Install dependencies using uv
+uv sync
 
 # Configuration
-# Create a .env file with the following:
+# Copy the example env file and fill in your details:
+cp .env.example .env
+# Edit .env and add:
 # GOOGLE_API_KEY=your_gemini_api_key
 # MONGO_URI=your_mongodb_connection_string
 # MONGO_DB_NAME=chalktalk_ai
 
 # Run Server
-python -m uvicorn main:app --reload --port 8000
+uv run uvicorn main:app --reload --port 8000
 ```
 
 ### 2. Frontend Setup
@@ -67,9 +72,9 @@ cd frontend
 npm install
 
 # Configuration
-# Create .env.local:
-NEXT_PUBLIC_API_URL=http://127.0.0.1:8000/api
-# (Note: In production/DigitalOcean, this should point to your backend URL)
+# Copy the example env file:
+cp .env.local.example .env.local
+# (Default is http://127.0.0.1:8000, which is correct for local dev)
 
 # Run Server
 npm run dev
@@ -84,15 +89,21 @@ npm run dev
 
 ---
 
-## 📦 Deployment
+## 📦 Deployment (DigitalOcean)
 
-This project is configured for **DigitalOcean App Platform**.
+This project is configured for **DigitalOcean App Platform** using the included `Dockerfile`.
 
 1.  **Fork this repo.**
 2.  Create a new **App** in DigitalOcean.
-3.  Connect your GitHub repository.
-4.  **Environment Variables:** Add `GOOGLE_API_KEY`, `MONGO_URI`, and `MONGO_DB_NAME` in the DigitalOcean settings.
-5.  DigitalOcean will automatically detect the Docker configuration (or Python/Node buildpacks) and deploy.
+3.  Connect your GitHub repository and select the `main` branch.
+4.  **Environment Variables (CRITICAL):**
+    You MUST add the following variables in the DigitalOcean App Settings -> Components -> `chalktalk-ai` -> Environment Variables:
+    *   `GOOGLE_API_KEY`: Your Gemini API Key.
+    *   `MONGO_URI`: Your Full MongoDB Connection String.
+    *   `MONGO_DB_NAME`: `chalktalk_ai` (or your preferred DB name).
+    *   `NEXT_PUBLIC_API_URL`: `/api` (Optional, but recommended for explicit routing).
+
+5.  **Deploy:** DigitalOcean will build the Docker container and launch the app.
 
 ---
 
