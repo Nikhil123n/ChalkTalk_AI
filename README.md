@@ -138,7 +138,7 @@ Found a bug? Want to add "Tone Analysis"? PRs are welcome!
 
 A huge thanks to the team behind ChalkTalk AI:
 
-*   **[Nikhil Arethiya](https://github.com/Nikhil123n)** - *Lead Developer*
+*   **[Nikhil Arethiya](https://github.com/Nikhil123n)**
 *   **[Sathwik](https://github.com/sathwik0312)**
 *   **[Sudharshan Reddy](https://github.com/sudharshanreddyt)**
 *   **Diksha Tiwari**
