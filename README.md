@@ -8,7 +8,14 @@
 
 ChalkTalk AI is a full-stack analytics platform that audits university lectures. It uses multimodal AI to quantify **"Active Teaching"** (board usage, gesturing, Socratic questioning) vs. **"Passive Delivery"** (reading off slides).
 
-![Dashboard Preview](./public/dashboard-screenshot.png) *<-- Add your image here*
+
+![Dashboard Analytics](./frontend/public/assets/dashboard-preview.png)
+*AI-driven analysis of a lecture, showing engagement score and timeline.*
+
+---
+
+![Landing Page](./frontend/public/assets/landing-preview.png)
+*Modern landing page ensuring a premium first impression.*
 
 ---
 
