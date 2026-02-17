@@ -8,23 +8,10 @@
 
 ChalkTalk AI is a full-stack analytics platform that audits university lectures. It uses multimodal AI to quantify **"Active Teaching"** (board usage, gesturing, Socratic questioning) vs. **"Passive Delivery"** (reading off slides).
 
-
 ![Problem Statement](./frontend/public/assets/problem-statement.png)
-*Highlighting the "Death by PowerPoint" crisis in education.*
-
----
-
-![Landing Page](./frontend/public/assets/landing-preview.png)
 *Modern landing page ensuring a premium first impression.*
 
 ---
-
-
-![Dashboard Analytics](./frontend/public/assets/dashboard-preview.png)
-*AI-driven analysis of a lecture, showing engagement score and timeline.*
-
----
-
 
 ## 💡 Inspiration
 **Why do we sometimes learn more from a 20-year-old video of a professor with a piece of chalk than from a modern 4K live stream?**
@@ -42,6 +29,13 @@ Using multimodal AI, it "watches" and "listens" to the lecture to generate:
 *   **Engagement Pulse:** By combining voice energy with visual motion, we identify "High-Impact Moments" where the class was likely most attentive.
 *   **The Coaching Corner:** An AI-generated summary that highlights strengths (e.g., *"Great energy when explaining the NFA concept!"*) and offers gentle suggestions (e.g., *"The segment at 22:00 was a bit static; maybe try a diagram here next time?"*).
 
+---
+
+![Dashboard Analytics](./frontend/public/assets/dashboard-preview.png)
+*AI-driven analysis of a lecture, showing engagement score and timeline.*
+
+---
+
 ## ⚙️ How we built it
 We wanted ChalkTalk AI to be fast, private, and helpful:
 
@@ -51,31 +45,10 @@ We wanted ChalkTalk AI to be fast, private, and helpful:
 *   **The Look:** A clean **Next.js 15** dashboard with **Recharts**, designed to be friendly and readable for non-tech faculty.
 *   **The Home:** Hosted on **DigitalOcean** with **MongoDB Atlas** keeping the data safe.
 
-## 🧠 Challenges we ran into
-*   **Capturing "Vibe":** Teaching is nuanced! It was tricky to teach the AI the difference between meaningful gestures (explaining a concept) and random movement. We spent a lot of time refining our prompts to get it right.
-*   **Fairness:** We didn't want to penalize quiet, intense teaching styles. Balancing our "Engagement Score" to appreciate different types of good teaching took several iterations.
-*   **The Sync:** Aligning audio sentiment with visual cues down to the second was a tough engineering puzzle, but crucial for accurate feedback.
-
-## 🏆 Accomplishments that we're proud of
-*   **From Data to Empathy:** We didn't just output cold graphs. We managed to generate feedback that feels supportive and human, like a mentor.
-*   **Quantifying the Unquantifiable:** We successfully built a metric for "Teacher Presence", something we weren't sure was possible when we started!
-*   **It's Fast:** We optimized our pipeline so professors don't have to wait hours to see their results.
-
-## 📚 What we learned
-*   **Context is King:** A transcript misses half the story. You have to see the teaching, the pointing, the hesitation, the excitement, to truly understand it.
-*   **Teachers Want to Grow:** Every educator we talked to wants to reach their students better; they just need the right tools to see how.
-*   **Multimodal Magic:** Combining vision and text models allowed us to solve problems that neither model could handle alone.
-
-## 🔮 What's next for ChalkTalk AI
-*   **Self-Reflection Mode:** Letting professors add their own notes to the timeline ("I felt rushed here") to compare their feelings with the AI's data.
-*   **The Student Simulator:** Using the lecture content to generate "Practice Questions," helping professors prepare for Q&A sessions before class even starts.
-*   **Accessibility Check:** Automatically flagging moments where the professor says "Look at this" without describing it, helping make lectures better for blind students.
-
----
-
 ## 🏗️ Architecture
-
+```
 [User Upload] -> [Backend API (FastAPI)] -> [Video Processing (OpenCV)] -> [AI Analysis (Gemini 2.5)] -> [MongoDB] -> [Frontend Dashboard (Next.js)]
+```
 
 ---
 
@@ -151,6 +124,28 @@ This project is configured for **DigitalOcean App Platform** using the included 
 
 ---
 
+## 🧠 Challenges we ran into
+*   **Capturing "Vibe":** Teaching is nuanced! It was tricky to teach the AI the difference between meaningful gestures (explaining a concept) and random movement. We spent a lot of time refining our prompts to get it right.
+*   **Fairness:** We didn't want to penalize quiet, intense teaching styles. Balancing our "Engagement Score" to appreciate different types of good teaching took several iterations.
+*   **The Sync:** Aligning audio sentiment with visual cues down to the second was a tough engineering puzzle, but crucial for accurate feedback.
+
+## 🏆 Accomplishments that we're proud of
+*   **From Data to Empathy:** We didn't just output cold graphs. We managed to generate feedback that feels supportive and human, like a mentor.
+*   **Quantifying the Unquantifiable:** We successfully built a metric for "Teacher Presence", something we weren't sure was possible when we started!
+*   **It's Fast:** We optimized our pipeline so professors don't have to wait hours to see their results.
+
+## 📚 What we learned
+*   **Context is King:** A transcript misses half the story. You have to see the teaching, the pointing, the hesitation, the excitement, to truly understand it.
+*   **Teachers Want to Grow:** Every educator we talked to wants to reach their students better; they just need the right tools to see how.
+*   **Multimodal Magic:** Combining vision and text models allowed us to solve problems that neither model could handle alone.
+
+## 🔮 What's next for ChalkTalk AI
+*   **Self-Reflection Mode:** Letting professors add their own notes to the timeline ("I felt rushed here") to compare their feelings with the AI's data.
+*   **The Student Simulator:** Using the lecture content to generate "Practice Questions," helping professors prepare for Q&A sessions before class even starts.
+*   **Accessibility Check:** Automatically flagging moments where the professor says "Look at this" without describing it, helping make lectures better for blind students.
+
+---
+
 ## 🤝 Contributing
 Found a bug? Want to add "Tone Analysis"? PRs are welcome!
 
@@ -159,9 +154,6 @@ Found a bug? Want to add "Tone Analysis"? PRs are welcome!
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
----
-
 
 ---
 
