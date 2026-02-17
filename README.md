@@ -131,5 +131,19 @@ Found a bug? Want to add "Tone Analysis"? PRs are welcome!
 
 ---
 
+
+---
+
+## 👥 Contributors
+
+A huge thanks to the team behind ChalkTalk AI:
+
+*   **[Nikhil Arethiya](https://github.com/Nikhil123n)** - *Lead Developer*
+*   **[Sathwik](https://github.com/sathwik0312)**
+*   **[Sudharshan Reddy](https://github.com/sudharshanreddyt)**
+*   **Diksha Tiwari**
+
+---
+
 ## 📄 License
 Distributed under the MIT License. See LICENSE for more information.
